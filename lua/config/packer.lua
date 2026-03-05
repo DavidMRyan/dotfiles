@@ -25,6 +25,25 @@ return require('packer').startup(function(use)
         end
     }
 	
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = {  -- 'requires' not 'dependencies'
+			'nvim-lua/plenary.nvim',
+			{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+		}
+	}
+	
+	
+	-- Specific Workload Plugins
+	
+	-- C#
+	use "seblj/roslyn.nvim"
+	
+	-- If you don't already have these for completions:
+	use "hrsh7th/nvim-cmp"
+	use "hrsh7th/cmp-nvim-lsp"	
+
+	-- Luau / Roblox
     use {
         'ShouxTech/rojo.nvim',
         config = function()
@@ -32,14 +51,8 @@ return require('packer').startup(function(use)
         end
     }
 
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {  -- 'requires' not 'dependencies'
-            'nvim-lua/plenary.nvim',
-            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-        }
-    }
-
+	
+	-- Themes
     use {
         "ellisonleao/gruvbox.nvim",
         config = function()
